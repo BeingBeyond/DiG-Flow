@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiG-Flow</title>
+    <link rel="icon" type="image/x-icon" href="assets/image/icon/favicon.ico">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <video class="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/background.webm" type="video/webm">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="header-logo header-corner">
+             <a href="https://github.com/BeingBeyond" target="_blank" aria-label="BeingBeyond Homepage">
+                <img src="assets/image/icon/beingbeyond.svg" alt="BeingBeyond Logo">
+             </a>
+        </div>
+
+        <div class="header-related header-corner" id="relatedDropdown">
+            <button class="header-related-btn" type="button">
+                Related Research
+            </button>
+            <div class="header-related-dropdown">
+                <a href="https://beingbeyond.github.io/Being-H0" target="_blank">Being-H0</a>
+                <a href="https://beingbeyond.github.io/Being-VL-0.5" target="_blank">Being-VL-0.5</a>
+                <a href="https://openreview.net/pdf?id=3TnLGGHhNx" target="_blank">Being-VL-0</a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <h1 class="title">DiG-Flow: Discrepancy-Guided Flow Matching for Robust VLA Models</h1>
+            
+            <div class="authors">
+                <div class="author-row">
+                    <a href="https://zhangwp.com" target="_blank">Wanpeng Zhang</a><sup>1,2</sup>, &nbsp;
+                    <a href="https://scholar.google.com/citations?user=RTuvoywAAAAJ" target="_blank">Ye Wang</a><sup>2,3</sup>, &nbsp;
+                    <a href="https://scholar.google.com/citations?user=TwuNaTYAAAAJ" target="_blank">Hao Luo</a><sup>1,2</sup>, &nbsp;
+                    <a href="https://yhqpkueecs.github.io" target="_blank">Haoqi Yuan</a><sup>1,2</sup>, &nbsp;
+                    <a href="https://takenpeanut.github.io" target="_blank">Yicheng Feng</a><sup>1,2</sup>,
+                </div>
+                
+                <div class="author-row">
+                    <a href="https://zhengsipeng.github.io" target="_blank">Sipeng Zheng</a><sup>2</sup>, &nbsp;
+                    <a href="https://www.jin-qin.com" target="_blank">Qin Jin</a><sup>3</sup>, &nbsp;
+                    <a href="https://z0ngqing.github.io" target="_blank">Zongqing Lu</a><sup>1,2†</sup>
+                </div>
+            </div>
+            
+            <div class="institutions">
+                <sup>1</sup>PKU &nbsp; <sup>2</sup>BeingBeyond &nbsp; <sup>3</sup>RUC
+            </div>
+
+            <div class="contribution">
+                <sup>†</sup>Corresponding Author
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" target="_blank" class="action-btn">
+                    <img src="assets/image/icon/pdf.svg" alt="PDF" class="btn-icon">
+                    Paper
+                </a>
+                <a href="#" target="_blank" class="action-btn">
+                    <img src="assets/image/icon/arxiv.svg" alt="arXiv" class="btn-icon">
+                    arXiv
+                </a>
+                <a href="https://github.com/BeingBeyond/DiG-Flow" target="_blank" class="action-btn">
+                    <img src="assets/image/icon/github.svg" alt="GitHub" class="btn-icon">
+                    Code
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section class="section visible">
+            <h2 style="text-align:center; margin-top: 2.5rem; font-size: 2.5rem;">Overview</h2>
+            <div class="simple-description">
+                <b><tt>DiG-Flow</tt></b>&nbsp; pushes more intelligence toward the foundation model, planning more robust actions for general manipulation.
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="grid-single">
+                <div class="media-card">
+                    <div class="media-wrapper">
+                        <img data-src="assets/image/framework.webp" class="lazy-media" alt="DiG-Flow Framework">
+                    </div>
+                    <h3 class="card-title">Framework</h3>
+                    <p class="card-desc">
+                        <b><tt>DiG-Flow</tt></b> is a modular, plug-and-play design that provides general support for flow-matching based VLAs. It maps observations and predictions into a unified representation space and measures their distributional discrepancy, preventing the flow-matching expert from generating actions blindly and allowing the autoregressive foundation model to better leverage its pretrained knowledge. <b><tt>DiG-Flow</tt></b> is compatible with various VLA architectures, including <b><tt>π</tt></b>, <b><tt>GR00T</tt></b>, and <a href="https://beingbeyond.github.io/Being-H0" target="_blank" style="color:var(--accent-color)"><b><tt>Being-H</tt></b></a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="grid-single">
+                <div class="media-card">
+                    <div class="media-wrapper">
+                        <img data-src="assets/image/digflow.webp" class="lazy-media" alt="Key Concept">
+                    </div>
+                    <h3 class="card-title">Key Concept</h3>
+                    <p class="card-desc">
+                        The key concept of <b><tt>DiG-Flow</tt></b> is to prevent shortcut transports in flow-matching based VLAs: overly flexible transports can fit post-hoc data by warping inputs straight to targets, bypassing the pretrained foundation model and suppressing its generalization. <b><tt>DiG-Flow</tt></b> introduces a gating mechanism that controls the relative contribution of the foundation knowledge and the flow path, discouraging these shortcuts and producing more general, robust behavior.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 style="text-align:center; margin-bottom: 2.5rem; font-size: 2.5rem;">Features</h2>
+            
+            <div class="grid-single">
+                
+                <div class="media-card">
+                    <div class="media-wrapper">
+                        <video data-src="assets/video/robust_control.webm" class="lazy-media content-video"></video>
+                    </div>
+                    <h3 class="card-title">Robust Control</h3>
+                    <p class="card-desc">
+                        The benefits of <b><tt>DiG-Flow</tt></b> are particularly pronounced for high-DoF robots. On a complex platform that simultaneously controls the head, body, and dexterous hands, <b><tt>DiG-Flow</tt></b> produces more intelligent control and more stable executions than baselines. Beyond improving success metrics, it remains robust across diverse affordances, unseen objects, and variations in background and lighting.
+                    </p>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-wrapper">
+                        <video data-src="assets/video/long_horizon.webm" class="lazy-media content-video"></video>
+                    </div>
+                    <h3 class="card-title">Long Horizon</h3>
+                    <p class="card-desc">
+                        <b><tt>DiG-Flow</tt></b> excels on long-horizon tasks. By forcing the foundation model to play a more active role in action generation, it better coordinates the slow reasoning system with the fast controller system, leading to stronger long-horizon performance. Under shifted backgrounds, the advantage of <b><tt>DiG-Flow</tt></b> over standard VLA baselines on long-horizon tasks becomes even more pronounced.
+                    </p>
+                </div>
+
+                 <div class="media-card">
+                    <div class="media-wrapper">
+                        <video data-src="assets/video/action_planning.webm" class="lazy-media content-video"></video>
+                    </div>
+                    <h3 class="card-title">Action Planning</h3>
+                    <p class="card-desc">
+                        <b><tt>DiG-Flow</tt></b> helps action planning, where its generated chunks exhibit more reasonable behavior. Even under severe goal occlusion, it can still complete the task. For example, in the “wipe-whiteboard” task, many baselines lose track of the goal once it is occluded and fall into endlessly executing “wipe” actions, whereas <b><tt>DiG-Flow</tt></b> enables more coherent action planning and avoids such degenerate behavior.
+                    </p>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-wrapper">
+                        <video data-src="assets/video/spatial_precision.webm" class="lazy-media content-video"></video>
+                    </div>
+                    <h3 class="card-title">Spatial Precision</h3>
+                    <p class="card-desc">
+                        <b><tt>DiG-Flow</tt></b> enhances spatial precision. While the foundation models provide strong visual backbones, standard flow-matching action heads often collapse to shortcut transports that ignore critical spatial cues and fail to fully exploit this capability. By correcting these shortcuts, <b><tt>DiG-Flow</tt></b> ties the flow head more tightly to the visual representation, so that the generated actions more faithfully reflect the spatial reasoning.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="bibtex-box">
+                <div class="bibtex-header">
+                    <h3 class="card-title" style="margin:0">Citation</h3>
+                    <button class="copy-btn" onclick="copyBibTeX()">Copy</button>
+                </div>
+                <div class="bibtex-code" id="bibtex-text">@article{zhang2025digflow,
+  title={DiG-Flow: Discrepancy-Guided Flow Matching for Robust VLA Models},
+  author={Zhang, Wanpeng and Wang, Ye and Luo, Hao and Yuan, Haoqi and Feng, Yicheng and Zheng, Sipeng and Jin, Qin and Lu, Zongqing},
+  journal={arXiv preprint arXiv:2512.xxxxx},
+  year={2025}
+}</div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>
+            This website is made by <a href="https://github.com/BeingBeyond" target="_blank">BeingBeyond</a>. 
+            Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+        </p>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
