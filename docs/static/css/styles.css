@@ -118,10 +118,9 @@ a { text-decoration: none; color: inherit; }
     right: 2.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* 右对齐 */
+    align-items: center;
 }
 
-/* 按钮样式 */
 .header-related-btn {
     background: transparent;
     border: none;
